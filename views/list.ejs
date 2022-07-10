@@ -1,16 +1,22 @@
-<h3>Consultas: </h3>
-<hr>
-<form action="/searchresult" method="get"> 
-    <input type="search" name="search" id="search" placeholder="Digite o e-mail ou o CPF do cliente">
-    <button>Pesquisar</button>
-</form>
-<hr>
-<% appos.forEach(appo => { %>
-
-    <h1>Consulta: <%= appo.description %> </h1>
-    <h4>Paciente: <%= appo.name %> </h4>
-    <h4>Email: <%= appo.email %> </h4>
-    <h4>CPF:  <%= appo.cpf %> </h4>
+<%- include("./partials/header.ejs") %>
+<%- include("./partials/navbar.ejs") %>
+<div class="container">
+    <h2 class="text-center">Lista de Consultas</h2>
     <hr>
-
-<% }) %>
+    <form action="/searchresult" method="get" class="text-center"> 
+        <input type="search" name="search" id="search" placeholder="Digite o e-mail ou o CPF do cliente">
+        <button>Pesquisar</button>
+    </form>
+    <hr>
+    <% appos.forEach(appo => { %>
+        <div class="card">
+            <h5 class="card-header">Consulta: <%= appo.description %></h5>
+            <div class="card-body">
+                <h5 class="card-title">Paciente: <%= appo.name %></h5>
+                <p class="card-text">Email: <%= appo.email %><br>CPF: <%= appo.cpf %></p>
+                <!-- <a href="#" class="btn btn-primary">Finalizar</a> -->
+            </div>
+        </div>
+    <% }) %>
+</div>
+<%- include("./partials/footer.ejs") %>
