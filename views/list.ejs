@@ -5,7 +5,7 @@
     <hr>
     <form action="/searchresult" method="get" class="text-center"> 
         <input type="search" name="search" id="search" placeholder="Digite o e-mail ou o CPF do cliente">
-        <button>Pesquisar</button>
+        <button class="btn btn-dark">Pesquisar</button>
     </form>
     <hr>
     <% appos.forEach(appo => { %>
@@ -13,8 +13,17 @@
             <h5 class="card-header">Consulta: <%= appo.description %></h5>
             <div class="card-body">
                 <h5 class="card-title">Paciente: <%= appo.name %></h5>
-                <p class="card-text">Email: <%= appo.email %><br>CPF: <%= appo.cpf %></p>
-                <!-- <a href="#" class="btn btn-primary">Finalizar</a> -->
+                <p class="card-text">
+                    <strong><%= appo.date %></strong><br>
+                    Email: <%= appo.email %><br>
+                    CPF: <%= appo.cpf %>
+                </p>
+                <% if(!appo.finished){ %>
+                    <form action="/finish" method="post">
+                        <input type="hidden" name="id" value="<%= appo._id %>">
+                        <button class="btn btn-dark">Finalizar Consulta</button>
+                    </form>
+                <% } %>
             </div>
         </div>
     <% }) %>

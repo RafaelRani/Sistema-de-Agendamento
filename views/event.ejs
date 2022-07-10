@@ -1,18 +1,23 @@
 <%- include("./partials/header.ejs") %>
 <%- include("./partials/navbar.ejs") %>
 <div class="container">
-    <h1>Consulta: <%= appo.description %> </h1>
-    <hr>
-    <h4>Paciente: <%= appo.name %> </h4>
-    <h4>Email: <%= appo.email %> </h4>
-    <h4>CPF:  <%= appo.cpf %> </h4>
-    <hr>
-    <% if(!appo.finished){ %>
-        <form action="/finish" method="post">
-            <input type="hidden" name="id" value="<%= appo._id %>">
-            <button>Finalizar Consulta</button>
-        </form>
-    <% } %>
+    <div class="card">
+        <h5 class="card-header">Consulta: <%= appo.description %></h5>
+        <div class="card-body">
+            <h5 class="card-title">Paciente: <%= appo.name %></h5>
+            <p class="card-text">
+                <strong><%= appo.date %></strong><br>
+                Email: <%= appo.email %><br>
+                CPF: <%= appo.cpf %>
+            </p>
+            <% if(!appo.finished){ %>
+                <form action="/finish" method="post">
+                    <input type="hidden" name="id" value="<%= appo._id %>">
+                    <button class="btn btn-dark">Finalizar Consulta</button>
+                </form>
+            <% } %>
+        </div>
+    </div>
 </div>
 <%- include("./partials/footer.ejs") %>
 
