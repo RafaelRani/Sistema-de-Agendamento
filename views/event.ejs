@@ -6,7 +6,7 @@
         <div class="card-body">
             <h5 class="card-title">Paciente: <%= appo.name %></h5>
             <p class="card-text">
-                <strong><%= appo.date %></strong><br>
+                <strong><%= appo.date.getDate() + 1 %>/<%= appo.date.getMonth() + 1 %>/<%= appo.date.getFullYear() %> - <%= appo.time %></strong><br>
                 Email: <%= appo.email %><br>
                 CPF: <%= appo.cpf %>
             </p>
