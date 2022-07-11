@@ -58,16 +58,26 @@ app.get('/cadastro', (req, res) => {
   dateError = (dateError == undefined || dateError.length == 0) ? undefined : dateError;
   timeError = (timeError == undefined || timeError.length == 0) ? undefined : timeError;
 
-  name = (name == undefined || name == 0)? "" : name;
-  email = (email == undefined || email == 0)? "" : email;
-  cpf = (cpf == undefined || cpf == 0)? "" : cpf;
-  description = (description == undefined || description == 0)? "" : description;
-  date = (date == undefined || date == 0)? "" : date;
-  time = (time == undefined || time == 0)? "" : time;
+  name = (name == undefined || name == 0) ? '' : name;
+  email = (email == undefined || email == 0) ? '' : email;
+  cpf = (cpf == undefined || cpf == 0) ? '' : cpf;
+  description = (description == undefined || description == 0) ? '' : description;
+  date = (date == undefined || date == 0) ? '' : date;
+  time = (time == undefined || time == 0) ? '' : time;
 
   res.render('create', {
-    nameError, emailError, cpfError, descriptionError, dateError, timeError,
-    name, email, cpf, description, date, time,
+    nameError,
+    emailError,
+    cpfError,
+    descriptionError,
+    dateError,
+    timeError,
+    name,
+    email,
+    cpf,
+    description,
+    date,
+    time,
   });
 });
 
@@ -75,11 +85,48 @@ app.post('/create', async (req, res) => {
   const {
     name, email, description, cpf, date, time,
   } = req.body;
-  const status = await AppointmentService.create(name, email, description, cpf, date, time);
-  if (status) {
-    res.redirect('/');
+
+  let nameError;
+  let emailError;
+  let descriptionError;
+  let cpfError;
+  let dateError;
+  let timeError;
+
+  // validação
+  if (name == undefined || name == '') { nameError = 'O nome não pode ser vazio'; }
+  if (name.length < 4) { nameError = 'O nome não pode ter menos de 4 letras'; }
+  if (email == undefined || email == '') { emailError = 'O email não pode ser vazio!'; }
+  if (!validator.isEmail(email)) { emailError = 'O email informado não é válido'; }
+  if (description == undefined || description == '') { descriptionError = 'A descrição não pode ser vazia'; }
+  if (cpf == undefined || cpf == '') { cpfError = 'O CPF não pode ser vazio'; }
+  if (date == undefined || date == '') { dateError = 'A data não pode ser vazia'; }
+  if (time == undefined || time == '') { timeError = 'A hora não pode ser vazia'; }
+
+  if (nameError != undefined || emailError != undefined || descriptionError != undefined
+     || cpfError != undefined || dateError != undefined || timeError != undefined) {
+    req.flash('nameError', nameError);
+    req.flash('emailError', emailError);
+    req.flash('descriptionError', descriptionError);
+    req.flash('cpfError', cpfError);
+    req.flash('dateError', dateError);
+    req.flash('timeError', timeError);
+
+    req.flash('name', name);
+    req.flash('email', email);
+    req.flash('description', description);
+    req.flash('cpf', cpf);
+    req.flash('date', date);
+    req.flash('time', time);
+
+    res.redirect('/cadastro');
   } else {
-    res.send('Ocorreu uma falha!');
+    const status = await AppointmentService.create(name, email, description, cpf, date, time);
+    if (status) {
+      res.redirect('/');
+    } else {
+      res.send('Ocorreu uma falha!');
+    }
   }
 });
 

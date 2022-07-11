@@ -4,18 +4,36 @@
     <h2 class="text-center">Cadastro de Consultas</h2>
     <hr>
     <form method="POST" action="create">
-        <input type="text" name="name" id="name" placeholder="Nome do paciente" class="form-control" value="<%= name %>" required>
-        <%= nameError %>
-        <input type="email" name="email" id="email" placeholder="email@email.com" class="form-control" value="<%= email %>" required>
-        <%= emailError %>
-        <input type="text" name="cpf" placeholder="CPF" class="form-control cpf" value="<%= cpf %>" required>
-        <%= cpfError %>
-        <input type="text" name="description" id="description" class="form-control" placeholder="Descrição" value="<%= description %>">
-        <%= descriptionError %>
-        <input type="date" name="date" id="date" class="form-control" placeholder="dd/mm/aaaa" value="<%= date %>" required>
-        <%= dateError %>
-        <input type="time" name="time" id="time" class="form-control" value="<%= time %>" required>
-        <%= timeError %>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" name="name" id="name" placeholder="Nome do paciente" class="form-control" value="<%= name %>" aria-describedby="namelHelp" required>
+            <div id="nameHelp" class="form-text"><%= nameError %></div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" placeholder="email@email.com" class="form-control" value="<%= email %>" aria-describedby="emailHelp" required>
+            <div id="emailHelp" class="form-text"><%= emailError %></div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">CPF</label>
+            <input type="text" name="cpf" placeholder="CPF" class="form-control cpf" value="<%= cpf %>" aria-describedby="cpflHelp" required>
+            <div id="cpfHelp" class="form-text"><%= cpfError %></div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Descrição</label>
+            <input type="text" name="description" id="description" class="form-control" placeholder="Descrição" value="<%= description %>" aria-describedby="descriptionHelp">
+            <div id="descriptionHelp" class="form-text"><%= descriptionError %></div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Data</label>
+            <input type="date" name="date" id="date" class="form-control" placeholder="dd/mm/aaaa" value="<%= date %>" aria-describedby="dateHelp" required>
+            <div id="dateHelp" class="form-text"><%= dateError %></div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Time</label>
+            <input type="time" name="time" id="time" class="form-control" value="<%= time %>" aria-describedby="timeHelp" required>
+            <div id="timeHelp" class="form-text"><%= timeError %></div>
+        </div>
         <button class="btn btn-dark btn-block">Agendar</button>
     </form>
 </div>
