@@ -14,6 +14,7 @@ Sistema de agendamento de consultas que permite ao usuário marcar consultas na 
 <div align="center" >
   <img src="./github/cadastrar.gif" alt="demo-cadastrar">
 </div>
+
 ## :clipboard: Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
