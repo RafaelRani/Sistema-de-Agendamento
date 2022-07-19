@@ -2,6 +2,7 @@
 Sistema de agendamento de consultas que permite ao usuário marcar consultas na data e horários escolhidos, enviando notificação por email quando chegar próximo da data da consulta.
 
 ## :white_check_mark: Features
+
 - [X] Cadastrar consulta
 - [X] Listar consultas
 - [X] Finalizar consulta
@@ -10,6 +11,9 @@ Sistema de agendamento de consultas que permite ao usuário marcar consultas na 
 
 ## :camera: Demonstração
 
+<div align="center" >
+  <img src="./github/cadastrar.gif" alt="demo-cadastrar">
+</div>
 ## :clipboard: Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
@@ -33,6 +37,7 @@ $ nodemon index.js
 
 # O servidor iniciará na porta:3000 - acesse: <http://localhost:3000>
 ```
+
 ## :rocket: Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:  
@@ -43,6 +48,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 :heavy_check_mark: HTML  
 :heavy_check_mark: Bootstrap  
   
-    
-    
 Made with :purple_heart: Rafael Rani :wave: [Get in touch!](https://www.linkedin.com/in/rafaelrani/)
