@@ -39,6 +39,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 :heavy_check_mark: Node  
 :heavy_check_mark: Express  
 :heavy_check_mark: MongoDB  
+:heavy_check_mark: Javascript  
 :heavy_check_mark: HTML  
 :heavy_check_mark: Bootstrap  
   
