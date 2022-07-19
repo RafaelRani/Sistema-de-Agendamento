@@ -179,6 +179,6 @@ setInterval(async () => {
   await AppointmentService.sendNotification();
 }, pollTime);
 
-app.listen(8080, () => {
+app.listen(3000, () => {
   console.log('Aplicação executando!');
 });
