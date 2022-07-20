@@ -28,7 +28,7 @@ Além disto, é bom ter um editor para trabalhar com código como [VSCode](https
 $ git clone https://github.com/RafaelRani/Sistema-de-Agendamento.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd projeto
+$ cd Sistema-de-Agendamento
 
 # Instale as dependências
 $ npm i
